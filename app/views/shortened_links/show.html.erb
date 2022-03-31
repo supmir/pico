@@ -1,0 +1,26 @@
+<div class="">
+  <h1 class="font-bold text-4xl">
+    <%= @shortened_link.link.title %>
+  </h1>
+  <a href="<%= @shortened_link.link.href %>">
+    <%= @shortened_link.link.href %>
+  </a>
+  <div>
+    <%= @shortened_link.path %>
+  </div>
+
+  <div>Analytics:</div>
+  <div>
+    <% @shortened_link.analytics.each do |analytic| %>
+      <div class="flex">
+        <div><%=analytic.geoloc%></div>
+        <div><%=analytic.ip%></div>
+        <div><%=analytic.city%></div>
+        <div><%=analytic.country%></div>
+        <div><%=analytic.lat%></div>
+        <div><%=analytic.lon%></div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
