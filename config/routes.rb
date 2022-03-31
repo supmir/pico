@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   root "shortened_links#new"
 
   # get "/links", to: "links#index"
-  # get "/links/:id", to: "links#show"
+  get "/picos/:id", to: "shortened_links#show"
   
   resources :links do
     resources :shortened_links
   end
-  resources :shortened_links
+  resources :shortened_links do
+    resources :analytics
+  end
 
-  get "/:path", to: "shortened_links#show"
+  get "/:path", to: "shortened_links#redirect"
 end

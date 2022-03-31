@@ -1,9 +1,23 @@
 require 'uri'
 class ShortenedLinksController < ApplicationController
   def show
+    @shortened_link = ShortenedLink.find(params[:id])
+  end
+
+
+  def redirect
     @shortened_link = ShortenedLink.find_by_path(params[:path])
     if @shortened_link
-      redirect_to @shortened_link.link.href, allow_other_host:true
+      analytic = Analytic.new(
+        shortened_link:@shortened_link,
+        ip:request.ip
+      )
+      if analytic.save
+        puts analytic
+        redirect_to @shortened_link.link.href, allow_other_host:true
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
       redirect_to "/"
     end
