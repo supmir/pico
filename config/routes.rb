@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   # get "/links", to: "links#index"
   # get "/links/:id", to: "links#show"
-
+  
   resources :links do
     resources :shortened_links
   end
   resources :shortened_links
+
+  get "/:path", to: "shortened_links#show"
 end
