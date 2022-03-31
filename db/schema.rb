@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_225346) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_113337) do
   create_table "links", force: :cascade do |t|
     t.string "title"
     t.string "href"
@@ -20,4 +20,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_225346) do
     t.index ["href"], name: "index_links_on_href", unique: true
   end
 
+  create_table "shortened_links", force: :cascade do |t|
+    t.string "path"
+    t.integer "link_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_shortened_links_on_link_id"
+  end
+
+  add_foreign_key "shortened_links", "links"
 end
