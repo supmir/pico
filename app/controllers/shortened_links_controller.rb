@@ -4,8 +4,9 @@ class ShortenedLinksController < ApplicationController
     @shortened_link = ShortenedLink.find_by_path(params[:path])
     if @shortened_link
       redirect_to @shortened_link.link.href, allow_other_host:true
+    else
+      redirect_to "/"
     end
-    redirect_to "/"
   end
 
   def new
