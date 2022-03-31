@@ -2,7 +2,10 @@ require 'uri'
 class ShortenedLinksController < ApplicationController
   def show
     @shortened_link = ShortenedLink.find_by_path(params[:path])
-    redirect_to @shortened_link.link.href, allow_other_host:true
+    if @shortened_link
+      redirect_to @shortened_link.link.href, allow_other_host:true
+    end
+    redirect_to "/"
   end
 
   def new
