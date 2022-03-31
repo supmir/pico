@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_31_185355) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "analytics", force: :cascade do |t|
     t.string "geoloc"
-    t.integer "shortened_link_id", null: false
+    t.bigint "shortened_link_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ip"
@@ -34,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_185355) do
 
   create_table "shortened_links", force: :cascade do |t|
     t.string "path"
-    t.integer "link_id", null: false
+    t.bigint "link_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_shortened_links_on_link_id"
