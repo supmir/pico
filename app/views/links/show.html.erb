@@ -5,7 +5,17 @@
   <a href="<%= @link.href %>">
     <%= @link.href %>
   </a>
+
   <div>
-    Clicks: <%= @link.clicks %>
+
+    <% @link.shortened_links.each do |shortened_link| %>
+      <div class="flex">
+        <div><%=shortened_link.path%></div>
+        <div>
+            <%= shortened_link.clicks %>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </div>
