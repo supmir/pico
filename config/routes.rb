@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :links do
     resources :shortened_links
   end
+  resources :shortened_links
 end
