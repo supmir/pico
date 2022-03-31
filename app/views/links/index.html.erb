@@ -2,7 +2,7 @@
   <h1 class="font-bold text-4xl">Links#index</h1>
   <div class="flex w-full">
   <% @links.each do |link|%>
-    <div class="flex w-full">
+    <a class="flex w-full" href="/links/<%= link.id %>">
       <div>
         <%= link.title %>
       </div>
@@ -12,7 +12,7 @@
       <div>
         <%= link.clicks %>
       </div>
-    </div>
+    </a>
     <% end %>
   </div>
 </div>
