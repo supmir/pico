@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_31_180605) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_182032) do
   create_table "analytics", force: :cascade do |t|
     t.string "geoloc"
     t.integer "shortened_links_id", null: false
@@ -32,6 +32,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_180605) do
     t.integer "link_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ip"
+    t.string "lat"
+    t.string "lon"
     t.index ["link_id"], name: "index_shortened_links_on_link_id"
     t.index ["path"], name: "index_shortened_links_on_path", unique: true
   end
