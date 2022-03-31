@@ -9,12 +9,9 @@
   <div>
 
     <% @link.shortened_links.each do |shortened_link| %>
-      <div class="flex">
+      <a class="flex" href="/<%=shortened_link.path%>">
         <div><%=shortened_link.path%></div>
-        <div>
-            <%= shortened_link.clicks %>
-        </div>
-      </div>
+      </a>
     <% end %>
 
   </div>
