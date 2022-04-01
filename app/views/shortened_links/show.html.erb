@@ -8,22 +8,18 @@
     </span>
   </div>
   <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl select-all">
-    <div class="mx-auto">
+    <div class="mx-auto truncate rtl text-left">
       <%= request.base_url %>/<%= @shortened_link.path %>
     </div>
   </div>
 
-  <div>Analytics:</div>
-  <div class="grid grid-cols-5">
+  <div>Clicks:</div>
+  <div class="grid grid-cols-3">
       <div>Time</div>
-      <div>City</div>
-      <div>Country</div>
       <div>Latitude</div>
       <div>Longitude</div>
     <% @shortened_link.analytics.each do |analytic| %>
       <div><%=analytic.created_at%></div>
-      <div><%=analytic.city%></div>
-      <div><%=analytic.country%></div>
       <div><%=analytic.lat%></div>
       <div><%=analytic.lon%></div>
     <% end %>
