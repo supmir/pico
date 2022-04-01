@@ -1,18 +1,23 @@
-<div class="">
-  <h1 class="font-bold text-4xl">
-    <%= @link.title %>
-  </h1>
-  <a href="<%= @link.href %>">
-    <%= @link.href %>
-  </a>
+<div class="w-full">
+  <div>
+    <h1 class="font-bold text-4xl inline">
+      <%= @link.title %>
+    </h1>
+    <span>
+      (<%= @link.href %>)
+    </span>
+  </div>
 
   <div>
-
     <% @link.shortened_links.each do |shortened_link| %>
-      <div class="flex">
-        <a href="/<%=shortened_link.path%>"><%=shortened_link.path%></a>
-        <a href="/picos/<%= shortened_link.id %>">View Report</a>
-      </div>
+      <a class="flex w-full flex-col sm:flex-row" href="/picos/<%= shortened_link.id %>">
+        <div class="flex-1 w-full truncate rtl text-left">
+          <%= request.base_url %>/<%= shortened_link.path %>
+        </div>
+        <%# <div class="w-full sm:w-auto">
+          View Report
+        </div> %>
+      </a>
     <% end %>
 
   </div>
