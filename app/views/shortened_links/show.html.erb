@@ -1,11 +1,11 @@
 <div class="w-full flex flex-col">
   <div>
-    <h1 class="font-bold text-4xl inline">
+    <h1 class="font-bold text-4xl">
       <%= @shortened_link.link.title %>
     </h1>
-    <span>
+    <div class="break-all italic" style="height:3em;overflow:hidden">
       (<%= @shortened_link.link.href %>)
-    </span>
+    </div>
   </div>
   <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl select-all">
     <div class="mx-auto truncate rtl text-left">
