@@ -1,25 +1,31 @@
-<div class="">
-  <h1 class="font-bold text-4xl">
-    <%= @shortened_link.link.title %>
-  </h1>
-  <a href="<%= @shortened_link.link.href %>">
-    <%= @shortened_link.link.href %>
-  </a>
+<div class="w-full flex flex-col">
   <div>
-    <%= @shortened_link.path %>
+    <h1 class="font-bold text-4xl inline">
+      <%= @shortened_link.link.title %>
+    </h1>
+    <span>
+      (<%= @shortened_link.link.href %>)
+    </span>
+  </div>
+  <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl select-all">
+    <div class="mx-auto">
+    <%= request.base_url %>/<%= @shortened_link.path %>
+    </div>
   </div>
 
   <div>Analytics:</div>
-  <div>
+  <div class="grid grid-cols-5">
+      <div>Time</div>
+      <div>City</div>
+      <div>Country</div>
+      <div>Latitude</div>
+      <div>Longitude</div>
     <% @shortened_link.analytics.each do |analytic| %>
-      <div class="flex">
-        <div><%=analytic.geoloc%></div>
-        <div><%=analytic.ip%></div>
-        <div><%=analytic.city%></div>
-        <div><%=analytic.country%></div>
-        <div><%=analytic.lat%></div>
-        <div><%=analytic.lon%></div>
-      </div>
+      <div><%=analytic.created_at%></div>
+      <div><%=analytic.city%></div>
+      <div><%=analytic.country%></div>
+      <div><%=analytic.lat%></div>
+      <div><%=analytic.lon%></div>
     <% end %>
 
   </div>
