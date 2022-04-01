@@ -11,7 +11,7 @@ module LinksHelper
             data = URI.open(href)
             doc = Nokogiri::HTML(data)
         end
-        doc.at_css('title').text
+        [doc.at_css('title').text, href]
     end
     def switch_protocol(href)
         if href =~ /^https:\/\//

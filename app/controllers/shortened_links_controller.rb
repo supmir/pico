@@ -32,13 +32,7 @@ class ShortenedLinksController < ApplicationController
     if !(@href =~ /^https?:\/\//)
       @href = 'http://' + @href
     end
-    @link = Link.find_by_href(@href)
-    if !@link
-      @link = Link.create_new_using_href(@href)
-      if !@link.save
-        render :new, status: :unprocessable_entity
-      end
-    end
+    @link = Link.find_or_create_new_using_href(@href)
     loop do
       @path = helpers.generate_new_name
       shortened_link = ShortenedLink.find_by_path(@path)
