@@ -1,13 +1,20 @@
-<div>
+<div class="w-full flex flex-col max-w-sm">
   <h1 class="font-bold text-4xl">Shorten a URL!</h1>
   <%= form_with model: @shortened_link do |form| %>
     <div>
-      <%= form.label :href %><br>
-      <%= form.text_field :href %>
+      <%= form.text_field :href, class:"block border border-grey-300 w-full p-3 rounded-xl mb-4", placeholder:"https://yoururlhere.com"%>
     </div>
-
     <div>
-      <%= form.submit %>
+      <%= form.submit "Shorten!", class: "w-full text-center py-3 rounded bg-indigo-600 text-white"%>
     </div>
   <% end %>
+  <div class="flex py-5 items-center">
+    <div class="flex-grow border-t border-gray-400"></div>
+    <span class="flex-shrink mx-4 text-gray-400">or</span>
+    <div class="flex-grow border-t border-gray-400"></div>
+  </div>
+  <a class="w-full text-center py-3 rounded bg-gray-400 text-white" href="/links">
+    Analyse Links
+  </a>
+  
 </div>
