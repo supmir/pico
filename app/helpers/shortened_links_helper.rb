@@ -6,7 +6,7 @@ module ShortenedLinksHelper
         generated = @@words.sample
         loop do
             word = @@words.sample
-            if generated + word > @@target_length
+            if (generated + word).length > @@target_length
                 break
             end
             generated = generated +"-"+ word
