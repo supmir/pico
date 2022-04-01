@@ -2,11 +2,11 @@
   <h1 class="font-bold text-4xl">Links</h1>
   <div class="w-full">
   <% @links.each do |link|%>
-    <a class="flex w-full" href="<%= link_path(link)%>">
-      <div>
+    <a class="flex w-full flex-col sm:flex-row" href="<%= link_path(link)%>">
+      <div class="sm:w-1/2 w-full truncate">
         <%= link.title %>
       </div>
-      <div class="flex-1">
+      <div class="sm:w-1/2 w-full">
         <%= link.href %>
       </div>
     </a>
