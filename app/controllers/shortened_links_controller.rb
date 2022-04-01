@@ -53,5 +53,6 @@ class ShortenedLinksController < ApplicationController
     if !@shortened_link.save
       render :new, status: :unprocessable_entity
     end
+    redirect_to @shortened_link
   end
 end
