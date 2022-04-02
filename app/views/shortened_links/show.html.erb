@@ -1,4 +1,7 @@
 <div class="w-full flex flex-col">
+  <a class="bg-indigo-600 text-white fixed bottom-10 right-10" href="<%= link_path(@shortened_link.link)%>">
+    Other Picos to this Link...
+  </a>
   <div>
     <h1 class="font-bold text-4xl">
       <%= @shortened_link.link.title %>
@@ -7,8 +10,8 @@
       (<%= @shortened_link.link.href %>)
     </div>
   </div>
-  <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl select-all">
-    <div class="mx-auto truncate rtl text-left">
+  <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl">
+    <div class="mx-auto truncate rtl text-left select-all">
       <%= request.base_url %>/<%= @shortened_link.path %>
     </div>
   </div>
