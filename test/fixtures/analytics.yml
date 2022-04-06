@@ -2,8 +2,8 @@
 
 one:
   geoloc: MyString
-  shortened_links: one
+  shortened_link: one
 
 two:
   geoloc: MyString
-  shortened_links: two
+  shortened_link: two

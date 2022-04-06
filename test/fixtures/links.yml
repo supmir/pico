@@ -2,10 +2,8 @@
 
 one:
   title: Google
-  href: https://www.google.com/
-  clicks: 0
+  href: https://www.fixture1.com/
 
 two:
   title: Amir Iskandar
-  href: https://amiriskandar.com/
-  clicks: 1
+  href: https://fixture2.com/
