@@ -10,10 +10,15 @@
       (<%= @shortened_link.link.href %>)
     </div>
   </div>
-  <div href="<%= request.base_url %>/<%= @shortened_link.path %>" class="w-full p-4 border flex my-2 rounded-xl select-all bg-indigo-600 text-white">
+  <div class="w-full p-4 border flex my-2 rounded-xl select-all bg-indigo-600 text-white" onclick="navigator.clipboard.writeText('<%= request.base_url %>/<%= @shortened_link.path %>');document.getElementById('copy').style.display ='none';document.getElementById('check').style.display =''">
     <p class="mx-auto truncate rtl text-left select-all">
       <%= request.base_url %>/<%= @shortened_link.path %>
     </p>
+    <div class="flex mx-2">
+      <i id="copy" class="my-auto fa fa-clone" aria-hidden="true"></i>
+      <i id="check" class="my-auto fa fa-check-square" aria-hidden="true" style="display:none"></i>
+
+    </div>
   </div>
 
   <div class="flex flex-col gap-y-2">
