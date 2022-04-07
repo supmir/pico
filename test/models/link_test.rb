@@ -26,24 +26,19 @@ class LinkTest < ActiveSupport::TestCase
   end
 
   test "should not have duplicate href" do
-    link1 = Link.new
-    link1.title = "fixture-test-2-1"
-    link1.href = "https://fixture-test-2.com"
-    link1.save
-
-    link2 = Link.new
-    link2.title = "fixture-test-2-2"
-    link2.href = "https://fixture-test-2.com"
-    assert_raise(ActiveRecord::RecordNotUnique) {link2.save}
+    link = Link.new
+    link.title = "Google"
+    link.href = "https://google.com"
+    assert_raise(ActiveRecord::RecordNotUnique) {link.save}
   end
 
   test "should populate title" do
-    link = Link.find_or_create_new_using_href("https://google.com")
-    assert_equal link.title, "Google"
+    link = Link.find_or_create_new_using_href("https://amiriskandar.com")
+    assert_equal link.title, "Amir Iskandar"
   end
 
   test "should not create new link for same href" do
-    link1 = Link.find_or_create_new_using_href("https://google.com")
+    link1 = Link.find_by_href("https://google.com")
     link2 = Link.find_or_create_new_using_href("https://google.com")
     assert_equal link1.id, link2.id
   end
