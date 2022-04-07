@@ -79,3 +79,5 @@ gem "nokogiri", "~> 1.13"
 gem "open-uri", "~> 0.2.0"
 
 gem "geocoder", "~> 1.7"
+
+gem "font-awesome-rails" 
