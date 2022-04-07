@@ -5,20 +5,24 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
+  2.7.5
 
-* System dependencies
+- System dependencies
 
-* Configuration
+- Configuration
 
-* Database creation
+- Database creation
 
-* Database initialization
+- Database initialization
 
-* How to run the test suite
+- How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+  > `bin/rails test`
 
-* Deployment instructions
+- Services (job queues, cache servers, search engines, etc.)
 
-* ...
+- Deployment instructions
+
+- Push instrunctions
+  > `git push heroku main<br> heroku run rake db:migrate<br> heroku open`
