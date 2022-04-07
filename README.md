@@ -25,4 +25,8 @@ Things you may want to cover:
 - Deployment instructions
 
 - Push instrunctions
-  > `git push heroku main<br> heroku run rake db:migrate<br> heroku open`
+  > ```
+  > git push heroku main
+  >  heroku run rake db:migrate
+  >  heroku open
+  > ```
