@@ -1,18 +1,18 @@
-<div class="w-full">
+<div class="w-full flex flex-col max-w-sm">
   <a class="bg-indigo-600 text-white fixed bottom-10 right-10" href="/">
     Create a Pico...
   </a>
   <h1 class="font-bold text-4xl">Links</h1>
-  <div class="w-full">
-  <% @links.each do |link|%>
-    <a class="flex w-full flex-col sm:flex-row" href="<%= link_path(link)%>">
-      <div class="sm:w-1/2 w-full truncate">
-        <%= link.title %>
-      </div>
-      <div class="sm:w-1/2 w-full truncate">
-        <%= link.href %>
-      </div>
-    </a>
-    <% end %>
+  <div class="flex flex-col gap-y-2">
+    <% @links.each do |link|%>
+      <a class="flex flex-col w-full border rounded-xl px-3 py-1" href="<%= link_path(link)%>">
+        <div class="w-full truncate">
+          <%= link.title %>
+        </div>
+        <div class="w-full text-right truncate text-gray-400">
+          <%= link.href %>
+        </div>
+      </a>
+      <% end %>
   </div>
 </div>

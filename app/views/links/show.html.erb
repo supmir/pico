@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-full flex flex-col max-w-sm">
   <a class="bg-indigo-600 text-white fixed bottom-10 right-10" href="/links">
     Other Links...
   </a>
@@ -11,15 +11,12 @@
     </span>
   </div>
 
-  <div>
+  <div class="flex flex-col gap-y-2">
     <% @link.shortened_links.each do |shortened_link| %>
-      <a class="flex w-full flex-col sm:flex-row" href="/picos/<%= shortened_link.id %>">
+      <a class="flex flex-col w-full border rounded-xl px-3 py-1" href="/picos/<%= shortened_link.id %>">
         <div class="flex-1 w-full truncate rtl text-left">
           <%= request.base_url %>/<%= shortened_link.path %>
         </div>
-        <%# <div class="w-full sm:w-auto">
-          View Report
-        </div> %>
       </a>
     <% end %>
 
