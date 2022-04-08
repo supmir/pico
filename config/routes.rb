@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get "/links", to: "links#index"
   get "/picos/:id", to: "shortened_links#show"
   get "/analytics/:id", to: "shortened_links#analytics"
+  get "/error", to: "shortened_links#error"
   
   resources :links do
     resources :shortened_links
