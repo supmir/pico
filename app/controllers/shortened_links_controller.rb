@@ -41,6 +41,9 @@ class ShortenedLinksController < ApplicationController
         :message => 'Did you copy the link correctly? You typed "'+params[:shortened_link][:href]+'"'
       })
       return
+    rescue
+      redirect_to :error
+      return
     end
     loop do
       @path = helpers.generate_new_name
