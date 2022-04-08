@@ -49,4 +49,9 @@ class ShortenedLinksController < ApplicationController
     end
     redirect_to @shortened_link
   end
+
+  def analytics
+    @shortened_link = ShortenedLink.find(params[:id])
+    render partial: "shortened_links/analytics"
+  end
 end
