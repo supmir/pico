@@ -1,4 +1,4 @@
- <% @shortened_link.analytics.each do |analytic| %>
+ <% @shortened_link.sorted_analytics.each do |analytic| %>
     <div class="flex flex-col w-full border rounded-xl px-3 py-1">
     <div><%=analytic.created_at%></div>
     <div class="flex">
