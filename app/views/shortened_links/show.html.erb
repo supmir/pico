@@ -25,16 +25,3 @@
     <%= render "shortened_links/analytics" %>
   </div>
 </div>
-
-
-<script>
-  const checkAnalytics = () => {
-    fetch("/analytics/<%= @shortened_link.id %>")
-      .then(response => response.text())
-      .then(response => {
-        document.getElementById("analytics").innerHTML = response;
-      });
-  };
-
-  setInterval(checkAnalytics, 2000);
-</script>
