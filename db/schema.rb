@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_091647) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_09_051637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_091647) do
     t.index ["path"], name: "index_shortened_links_on_path", unique: true
   end
 
-  add_foreign_key "analytics", "shortened_links"
-  add_foreign_key "shortened_links", "links"
+  add_foreign_key "analytics", "shortened_links", on_delete: :cascade
+  add_foreign_key "shortened_links", "links", on_delete: :cascade
 end
