@@ -21,7 +21,26 @@
     </div>
   </div>
 
-  <div class="flex flex-col gap-y-2" id="analytics">
+  <div class="flex flex-col gap-y-2" id="analytics" data-value="<%= @shortened_link.id %>">
     <%= render "shortened_links/analytics" %>
   </div>
 </div>
+
+
+<script>
+  var id = "<%= @shortened_link.id %>"
+
+  var checkAnalytics = () => {
+    analyticdiv = document.getElementById("analytics")
+    if (analyticdiv){
+      fetch("/analytics/"+analyticdiv.getAttribute('data-value'))
+        .then(response => response.text())
+        .then(response => {
+            document.getElementById("analytics").innerHTML = response;
+        });
+    } else {
+      clearInterval(window.myInterval);
+    }
+  };
+  window.myInterval = setInterval(checkAnalytics, 2000);
+</script>
