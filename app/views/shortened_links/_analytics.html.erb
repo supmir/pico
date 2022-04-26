@@ -3,7 +3,7 @@
     <div><%=analytic.created_at%></div>
     <div class="flex">
         <div class="w-full text-right">
-        <%=analytic.city && analytic.country ? analytic.city + ", " + analytic.country : (analytic.lat ? analytic.lat + ", " + analytic.lon : '-,-') %>
+        <%=analytic.city && analytic.country ? analytic.city + ", " + analytic.country.upcase : (analytic.lat ? analytic.lat + ", " + analytic.lon : '-,-') %>
         </div>
     </div>
     </div>
