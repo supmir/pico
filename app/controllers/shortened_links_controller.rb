@@ -31,6 +31,10 @@ class ShortenedLinksController < ApplicationController
     @href = params[:shortened_link][:href]
     begin
       @link = Link.find_or_create_new_using_href(@href)
+      @shortened_link = ShortenedLink.create_shortened_link(@link)
+      if @shortened_link
+        redirect_to @shortened_link
+      end
     rescue SocketError
       redirect_to({ 
         :action=> :error, 
@@ -41,14 +45,6 @@ class ShortenedLinksController < ApplicationController
     rescue
       redirect_to :error
       return
-    end
-
-    @shortened_link = ShortenedLink.create_shortened_link(@link)
-
-    if @shortened_link
-      redirect_to @shortened_link
-    else
-      redirect_to :error
     end
   end
 
