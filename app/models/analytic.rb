@@ -8,5 +8,6 @@ class Analytic < ApplicationRecord
       obj.city    = geo.city
       obj.country = geo.country_code
     end
+  end
   after_validation :geocode, :reverse_geocode
 end
