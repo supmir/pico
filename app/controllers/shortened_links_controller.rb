@@ -29,9 +29,6 @@ class ShortenedLinksController < ApplicationController
 
   def create
     @href = params[:shortened_link][:href]
-    if !(@href =~ /^https?:\/\//)
-      @href = 'http://' + @href
-    end
     begin
       @link = Link.find_or_create_new_using_href(@href)
     rescue SocketError
@@ -45,21 +42,13 @@ class ShortenedLinksController < ApplicationController
       redirect_to :error
       return
     end
-    loop do
-      @path = helpers.generate_new_name
-      shortened_link = ShortenedLink.find_by_path(@path)
-      if !@shortened_link
-        break
-      end
-    end
-    @shortened_link = ShortenedLink.new(
-        path:@path,
-        link:@link
-    )
-    if !@shortened_link.save
-      redirect_to :error
-    else
+
+    @shortened_link = ShortenedLink.create_shortened_link(@link)
+
+    if @shortened_link
       redirect_to @shortened_link
+    else
+      redirect_to :error
     end
   end
 

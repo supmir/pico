@@ -5,4 +5,20 @@ class ShortenedLink < ApplicationRecord
   def sorted_analytics
     self.analytics.order("created_at DESC")
   end
+
+  def self.create_shortened_link(link)
+    loop do
+      @path = helpers.generate_new_name
+      shortened_link = ShortenedLink.find_by_path(@path)
+      if !@shortened_link
+        break
+      end
+    end
+
+    @shortened_link = ShortenedLink.new(
+        path:@path,
+        link:link
+    )
+    @shortened_link
+  end
 end
