@@ -4,7 +4,7 @@ class CreateLinks < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :href
       t.integer :clicks
-      # Add hash
+      # TODO: Add hash
 
       t.timestamps
     end
