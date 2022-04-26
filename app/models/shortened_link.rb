@@ -8,17 +8,19 @@ class ShortenedLink < ApplicationRecord
 
   def self.create_shortened_link(link)
     loop do
-      @path = helpers.generate_new_name
+      @path = ApplicationController.helpers.generate_new_name
       shortened_link = ShortenedLink.find_by_path(@path)
-      if !@shortened_link
+      if !shortened_link
         break
       end
     end
+    
+    shortened_link = ShortenedLink.new(
+      path:@path,
+      link:link
+      )
 
-    @shortened_link = ShortenedLink.new(
-        path:@path,
-        link:link
-    )
-    @shortened_link
+    shortened_link.save
+    return shortened_link
   end
 end
